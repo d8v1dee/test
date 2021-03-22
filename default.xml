@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+  <!-- Remote repositories definition -->
+  <remote name="yocto" fetch="git://git.yoctoproject.org"/>
+  <remote name="tsi" fetch="ssh://git@stash:7999/tnav"/>
+  <remote name="github" fetch="https://github.com"/>
+  <remote name="oe" fetch="https://github.com/openembedded"/>
+
+  <!-- Main Yocto project for TNAV system -->
+  <project name="yocto-bsp" revision="master" remote="tsi" path="yocto-bsp"/>
+
+  <!-- Upstream Yocto & OpenEmbedded Projects -->
+  <project name="poky" revision="warrior" remote="yocto" path="yocto-bsp/sources/poky"/>
+  <project remote="oe" revision="warrior" name="meta-openembedded" path="yocto-bsp/sources/meta-openembedded"/>
+  <project remote="yocto" revision="warrior" name="meta-virtualization" path="yocto-bsp/sources/meta-virtualization"/>
+
+  <!-- Meta layer for Think Surgical system and applications -->
+  <project name="meta-thinksurgical" revision="master" remote="tsi" path="yocto-bsp/sources/meta-thinksurgical"/>
+
+  <!-- Other community repositories -->
+  <project name="gdoffe/bash_scripting_tools" revision="b4ef25e78f7d96e75dd28b2cd1c83f26e92df526" remote="github" path="yocto-bsp/scripts/bash_scripting_tools"/>
+  <project name="savoirfairelinux/meta-validation" revision="c8efbafa2a051808a5fe5c98025f418b5d52b23f" remote="github" path="yocto-bsp/sources/meta-validation"/>
+</manifest>
